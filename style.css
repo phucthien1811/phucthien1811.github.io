@@ -154,14 +154,18 @@ body {
 .tech-icons-grid i {
     font-size: 3.5em; /* Kích thước icon công nghệ */
     color: #fff;
-    transition: transform 0.2s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease; /* Thêm opacity vào transition */
     opacity: 0.8; /* Hơi mờ một chút */
+    /* Hoạt ảnh xoay liên tục */
+    animation: spin 10s linear infinite; /* 10s: thời gian 1 vòng, linear: tốc độ đều, infinite: lặp vô hạn */
 }
 
 .tech-icons-grid i:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(0deg); /* Đảm bảo không bị xoay thêm khi hover, chỉ scale */
     color: #6c5ce7; /* Hiệu ứng hover */
     opacity: 1;
+    /* Hiệu ứng nhảy và xoay nhẹ khi hover */
+    animation: bounceSpin 0.6s ease-in-out; 
 }
 
 /* Footer */
@@ -218,4 +222,99 @@ body {
         font-size: 2.8em;
         gap: 15px;
     }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Keyframes cho hiệu ứng nhảy và xoay nhẹ khi hover */
+@keyframes bounceSpin {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+/* Màu sắc riêng cho từng icon công nghệ */
+.tech-icons-grid .fa-html5 {
+    color: #E34F26; /* Màu cam của HTML5 */
+}
+
+.tech-icons-grid .fa-css3-alt {
+    color: #1572B6; /* Màu xanh của CSS3 */
+}
+
+.tech-icons-grid .fa-js {
+    color: #F7DF1E; /* Màu vàng của JavaScript */
+}
+
+.tech-icons-grid .fa-react {
+    color: #61DAFB; /* Màu xanh React */
+}
+
+.tech-icons-grid .fa-node {
+    color: #339933; /* Màu xanh lá của Node.js */
+}
+
+.tech-icons-grid .fa-python {
+    color: #3776AB; /* Màu xanh của Python */
+}
+
+.tech-icons-grid .fa-php {
+    color: #777BB4; /* Màu tím của PHP */
+}
+
+.tech-icons-grid .fa-database { /* Đây là icon chung cho database, tôi dùng màu xanh biển */
+    color: #4479A1; /* Màu xanh biển (có thể dùng cho MySQL, SQL Server) */
+}
+
+.tech-icons-grid .fa-git-alt {
+    color: #F05032; /* Màu cam của Git */
+}
+
+/* Nếu bạn muốn thêm các icon khác như MongoDB, Express, Next.js, Go, Docker,
+bạn cần tìm icon phù hợp (từ Font Awesome nếu có hoặc SVG từ Simple Icons)
+và sau đó thêm CSS cho chúng.
+
+Ví dụ nếu bạn dùng Font Awesome cho các icon đó (nếu có trong thư viện của họ):
+.tech-icons-grid .fa-mongodb { /* Giả sử có class này */
+/* color: #47A248; */
+/* } */
+
+/* Ví dụ nếu bạn nhúng SVG (và đã đặt class 'tech-icon-svg' cho chúng): */
+/* .tech-icon-svg[alt="MongoDB"] { fill: #47A248; } */
+/* .tech-icon-svg[alt="Express"] { fill: #000000; } */
+/* .tech-icon-svg[alt="Next.js"] { fill: #000000; } */
+/* Màu sắc cho các icon mạng xã hội trong phần "Connect With Me" */
+
+.social-link-item .fa-instagram {
+    color: #E4405F; /* Màu của Instagram */
+}
+
+.social-link-item .fa-tiktok {
+    color: #01F0EC; /* Màu xanh ngọc của TikTok */
+    /* Bạn cũng có thể thử đổ bóng để giả lập màu kép của logo TikTok */
+    /* text-shadow: -1px -1px 0 #FE2C55, 1px 1px 0 #25F4EE; */
+}
+
+.social-link-item .fa-linkedin {
+    color: #0A66C2; /* Màu của LinkedIn */
+}
+
+.social-link-item .fa-facebook {
+    color: #1877F2; /* Màu của Facebook */
+}
+
+/* Bạn cũng có thể thêm hover effect cho các icon này để chúng tương tác hơn */
+.social-link-item:hover .fab {
+    transform: scale(1.1); /* Phóng to icon khi di chuột qua */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Để đảm bảo text và handle cũng có màu sắc nhất quán khi hover, bạn có thể thêm */
+.social-link-item:hover span {
+    color: #fff; /* Hoặc một màu khác nổi bật khi hover */
 }
