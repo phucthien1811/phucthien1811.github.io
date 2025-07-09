@@ -1,0 +1,221 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #1a1a1a; /* Nền tối */
+    color: #e0e0e0; /* Chữ sáng */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Để nội dung bắt đầu từ trên cùng */
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px; /* Chiều rộng tối đa của nội dung */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Khoảng cách giữa các phần */
+    padding: 20px; /* Padding tổng thể cho container */
+}
+
+/* Card Styling */
+.card {
+    background-color: #2a2a2a; /* Nền card tối hơn */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #3a3a3a; /* Viền mỏng cho card */
+    position: relative; /* Cho các hiệu ứng gradient hoặc border */
+    overflow: hidden; /* Đảm bảo mọi thứ bên trong không tràn ra ngoài border-radius */
+}
+
+/* Header Section */
+.header-section {
+    display: flex;
+    flex-direction: column; /* Mặc định là column cho mobile */
+    align-items: center;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 4px solid #6c5ce7; /* Màu tím nhạt hoặc màu bạn thích */
+    box-shadow: 0 0 15px rgba(108, 92, 231, 0.5);
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-info h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.header-info .title {
+    font-size: 1.1em;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+.social-icons-header {
+    margin-top: 15px;
+}
+
+.social-icons-header a {
+    color: #fff;
+    font-size: 1.8em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons-header a:hover {
+    color: #6c5ce7; /* Hiệu ứng hover */
+}
+
+/* About Me Section */
+.about-me-section h2, .connect-with-me-section h2, .technologies-section h2 {
+    font-size: 1.8em;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-me-section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ccc;
+    text-align: center;
+}
+
+/* Connect With Me Section */
+.social-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 2 cột trên màn hình lớn */
+    gap: 15px;
+}
+
+.social-link-item {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid #444;
+}
+
+.social-link-item:hover {
+    background-color: #444;
+    transform: translateY(-5px);
+}
+
+.social-link-item i {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: #6c5ce7; /* Màu icon */
+}
+
+.social-link-item span:first-of-type {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.social-link-item .handle {
+    font-size: 0.9em;
+    color: #bbb;
+}
+
+/* Technologies Section */
+.tech-icons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.tech-icons-grid i {
+    font-size: 3.5em; /* Kích thước icon công nghệ */
+    color: #fff;
+    transition: transform 0.2s ease, color 0.3s ease;
+    opacity: 0.8; /* Hơi mờ một chút */
+}
+
+.tech-icons-grid i:hover {
+    transform: scale(1.1);
+    color: #6c5ce7; /* Hiệu ứng hover */
+    opacity: 1;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .header-section {
+        flex-direction: row; /* Trở lại hàng ngang trên màn hình lớn */
+        text-align: left;
+        justify-content: flex-start; /* Căn trái */
+    }
+
+    .profile-pic {
+        margin-right: 30px;
+        margin-bottom: 0;
+    }
+
+    .header-info {
+        flex-grow: 1; /* Cho phép phần thông tin chiếm không gian còn lại */
+    }
+
+    .header-info h1 {
+        font-size: 3em; /* Lớn hơn trên màn hình desktop */
+    }
+
+    .social-links-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột trên màn hình lớn */
+    }
+}
+
+/* Minor adjustments for mobile */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        gap: 15px;
+    }
+    .card {
+        padding: 20px;
+    }
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+    .header-info h1 {
+        font-size: 2em;
+    }
+    .tech-icons-grid i {
+        font-size: 2.8em;
+        gap: 15px;
+    }
+}
